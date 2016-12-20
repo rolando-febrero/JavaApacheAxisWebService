@@ -1,0 +1,35 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MyJavaWebServiceHelloWorldService WSDL service -->
+
+  <service name="MyJavaWebServiceHelloWorld" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.web.com.rolandofebrero"/>
+      <parameter name="wsdlServiceElement" value="MyJavaWebServiceHelloWorldService"/>
+      <parameter name="schemaQualified" value="http://service.web.com.rolandofebrero"/>
+      <parameter name="wsdlServicePort" value="MyJavaWebServiceHelloWorld"/>
+      <parameter name="className" value="rolandofebrero.com.web.service.MyJavaWebServiceHelloWorldSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="MyJavaWebServiceHelloWorld"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addValue" qname="operNS:addValue" xmlns:operNS="http://service.web.com.rolandofebrero" returnQName="retNS:addValueReturn" xmlns:retNS="http://service.web.com.rolandofebrero" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:value" xmlns:pns="http://service.web.com.rolandofebrero" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="subtractValue" qname="operNS:subtractValue" xmlns:operNS="http://service.web.com.rolandofebrero" returnQName="retNS:subtractValueReturn" xmlns:retNS="http://service.web.com.rolandofebrero" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:value" xmlns:pns="http://service.web.com.rolandofebrero" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="multiplyValue" qname="operNS:multiplyValue" xmlns:operNS="http://service.web.com.rolandofebrero" returnQName="retNS:multiplyValueReturn" xmlns:retNS="http://service.web.com.rolandofebrero" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:value" xmlns:pns="http://service.web.com.rolandofebrero" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="multiplyValue subtractValue addValue"/>
+
+  </service>
+</deployment>
