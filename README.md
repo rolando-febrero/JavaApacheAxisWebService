@@ -7,9 +7,9 @@ More precisely, Axis is an implementation of SOAP. Most people like to think of 
 
 Well, let's start coding...
 For this example we are going to use:
-Java (here I'm using JDK 1.7)
-Apache Tomcat v7.xx
-Eclipse Luna
+- Java (here I'm using JDK 1.7)
+- Apache Tomcat v7.xx
+- Eclipse Luna
 
 Install Apache Tomcat and add it to Eclipse... File --> New --> Other. Type in server, and follow the wizard.
 
